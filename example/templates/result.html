@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wildlife Identification</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+      
+    <style>
+	body { padding-top:50px; padding-bottom:50px;   overflow:auto; }.navbar-inverse .navbar-nav > li > a { color: #DBE4E1; } 
+    .box{
+    float:left;
+    width:49%;
+    height:300px;
+    margin:0 auto;
+}
+  .container {
+  width: 1000px;
+  clear: both;
+    
+} 
+   #load{
+    width:45%;
+    height:60%;
+    position:fixed;
+    z-index:9999;
+    background:url("https://cdn.dribbble.com/users/178981/screenshots/2245419/xxxx.gif") no-repeat center center rgba(0,0,0,0.25)
+}
+      </style>
+</head>
+<body>
+                <div id="load" style="margin-left: 390px;
+                                      margin-top: 75px;"></div>
+
+    <header>
+           <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <div class="container-fluid">
+                 <div class="col-sm-3">
+                    <img style="padding-top: 10px;" src="static/img/logo.png" class="img-responsive" style="width: 50px; height: 50px;" />
+       				 </div>
+                  
+                 <div class="col-sm-6" align="center">				 
+                    <h1 class="open-sans-font"><font color="#00BFFF" size='6'>Wildlife Identification</font></h1>
+                 </div>
+				 <div class="col-sm-3">
+                    <img id="ds-logo" style="float:right"  src="static/img/mil-light-logo.png" class="img-responsive dslogo" height="30" width="180" />
+                 </div>
+					 
+                
+              </div>
+           </nav>
+        </header>
+    <div class="container"  class="open-sans-font" align="center" style="padding: inherit;">
+      <h2>{{ var1 }} </h2>
+      <img src="{{ url_for('static', filename=sfname) }}" alt="as" style="block-size: 250px;"/>
+    </div>
+    <button onclick="goBack()"  class="btn btn-lg btn-primary"style="margin-left: 600px; margin-top: 0px;">Back to Home</button>
+    <div>
+<footer class="container-fluid navbar-fixed-bottom" style="background-color:#232527;color:#fff;width:100%;height:40px;">
+        <div class="row">
+           <div class="container-fluid" style="padding:10px 0px;">
+              <div class="col-sm-3 col-xs-12">
+                 <h6 id="footpara1">&#169 2018 <span id="red"> Miracle Software Systems, Inc</span></h6>
+              </div>
+              <div class="col-sm-offset-6 col-sm-3 col-xs-12">
+                  <h6 id="footpara2" align="right">Created by <b> Miracle's<span id="red"> Innovation Labs</span></b></h6>
+              </div>
+           </div>
+        </div>
+     </footer>
+</div>
+          <script>
+          document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'interactive') {
+       document.getElementById('contents').style.visibility="hidden";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.getElementById('load').style.visibility="hidden";
+         document.getElementById('contents').style.visibility="visible";
+      },1000);
+  }
+}
+      </script>
+    <script>
+function goBack() {
+  window.history.back()
+}
+</script>
+</body>
+</html>

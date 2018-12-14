@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wildlife Identification</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <style>
+	body { padding-top:50px; overflow:auto; }.navbar-inverse .navbar-nav > li > a { color: #DBE4E1; } 
+    .box{
+    float:left;
+    width:49%;
+    height:300px;
+    margin:0 auto;
+}
+         .open-sans-font{
+  font-family: 'Open Sans', sans-serif;
+}
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+ .box.has-advanced-upload {
+  background-color: white;
+  outline: 2px dashed black;
+  outline-offset: -10px;
+}
+.box.has-advanced-upload .box__dragndrop {
+  display: inline;
+}
+.box.is-dragover {
+  background-color: grey;
+}
+.box.is-uploading .box__input {
+  visibility: none;
+}
+.box.is-uploading .box__uploading {
+  display: block;
+}
+        
+.container {
+  width: 1000px;
+  clear: both;
+    
+}
+        
+</style>
+  </head>
+
+  <body style="background-image: url(/static/img/image.jpg);">
+          <div class="se-pre-con"></div>
+
+  <header>
+           <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <div class="container-fluid">
+                 <div class="col-sm-3">
+                    <img style="padding-top: 10px;" src="static/img/logo.png" class="img-responsive" style="width: 50px; height: 50px;" />
+       				 </div>
+                  
+                 <div class="col-sm-6" align="center">				 
+                    <h1 class="open-sans-font"><font color="#00BFFF" size='6'>Wildlife Identification</font></h1>
+                 </div>
+				 <div class="col-sm-3">
+                    <img id="ds-logo" style="float:right"  src="static/img/mil-light-logo.png" class="img-responsive dslogo" height="30" width="180" />
+                 </div>
+					 
+                
+              </div>
+           </nav>
+        </header>
+<br><br>
+ <!-- <div id="loader"></div> -->
+
+<div class="container"  class="open-sans-font" align="center" style="padding-top: 45px; padding-left: 20px;">
+
+		
+		<div class="box__input" align="middle" style="padding-top: 40px;" >
+			<i class="fas fa-cloud-upload-alt" style='font-size:40px'></i>
+        <p class="lead"><h3>Drag your files here</h3></p>		 
+		 <h3>or</h3>
+	     <form id="upload-image-form" action="/image" method="post" enctype="multipart/form-data" runat="server">
+          <div id="image-preview-div" style="display: none">
+            <br><label for="exampleInput">Selected image:</label>
+            <br>
+            <img id="preview-img" src="noimage.jpg">
+          </div>
+		  <!-- <br> -->
+          <div class="form-group" style= "padding-left: 150px">
+           <h3> <input type="file" name="predimg" id="imgFile" required>
+                <img id="blah" style="block-size: 100px; padding-right: 175px; margin-top: 15px;" />
+</h3>
+          </div>
+             
+          <button class="btn btn-lg btn-primary" id="upload-button" type="submit" >Upload</button>
+             <br><br>
+        </form>
+		</div>
+      <br>   
+            
+      
+<footer class="container-fluid navbar-fixed-bottom" style="background-color:#232527;color:#fff;width:100%;height:40px;">
+        <div class="row">
+           <div class="container-fluid" style="padding:10px;">
+              <div class="col-sm-3 col-xs-12">
+                 <h6 id="footpara1" style="margin-left: -120px;">&#169 2018 <span id="red"> Miracle Software Systems, Inc</span></h6>
+              </div>
+              <div class="col-sm-offset-6 col-sm-3 col-xs-12">
+                  <h6 id="footpara2" align="right">Created by <b> Miracle's<span id="red"> Innovation Labs</span></b></h6>
+              </div>
+           </div>
+        </div>
+     </footer>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+      function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgFile").change(function() {
+  readURL(this);
+});</script>
+      
+      
+      <script src="jruery-v1.min.js"></script>
+      <script>
+          var div = document.createElement('div');
+          return ('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)
+          return 'FormData' in window;
+          'FileReader' in window
+          var isAdvancedUpload = function() {
+          var div = document.createElement('div');
+          return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
+          }();
+          if (isAdvancedUpload) {
+            // ...
+          }
+          var $form = $('.box');
+
+          if (isAdvancedUpload) {
+            $form.addClass('has-advanced-upload');
+          }
+if (isAdvancedUpload) {
+
+  var droppedFiles = false;
+
+  $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  })
+  .on('dragover dragenter', function() {
+    $form.addClass('is-dragover');
+  })
+  .on('dragleave dragend drop', function() {
+    $form.removeClass('is-dragover');
+  })
+  .on('drop', function(e) {
+    droppedFiles = e.originalEvent.dataTransfer.files;
+  });
+
+}
+          $form.find('input[type="file"]').prop('files', droppedFiles);
+          $form.on('submit', function(e) {
+  if ($form.hasClass('is-uploading')) return false;
+
+  $form.addClass('is-uploading').removeClass('is-error');
+
+  if (isAdvancedUpload) {
+    // ajax for modern browsers
+  } else {
+    // ajax for legacy browsers
+  }
+});
+          
+      </script>
+  </body>
+</html>
