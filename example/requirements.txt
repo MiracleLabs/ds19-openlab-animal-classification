@@ -44,7 +44,7 @@ PyJWT==1.6.4
 pyOpenSSL==18.0.0
 python-dateutil==2.7.3
 pytz==2018.4
-PyYAML==3.12
+PyYAML==5.1
 queuelib==1.5.0
 requests==2.19.1
 requests-oauthlib==1.0.0
