@@ -163,4 +163,4 @@ def main():
     print(sfname)
     return render_template('result.html',var1=var1, sfname=sfname)
 if __name__ == '__main__':
-    app.run(debug=True,port=4000)
+    app.run()
