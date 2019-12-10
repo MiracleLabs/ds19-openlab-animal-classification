@@ -1,4 +1,4 @@
-# DS18 Open Lab | Building a Classification Model with Azure Custom Vision
+# DS19 Open Lab | Building a Classification Model with Azure Custom Vision
 
 This repository contains the lab for Building a Classification Model with Azure Custom Vision. It is one of the labs brought to you by Miracle's Innovation Labs.
 
